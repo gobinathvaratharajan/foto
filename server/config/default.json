@@ -1,0 +1,59 @@
+{
+    "domain": "http://localhost:3000",
+    // user based management
+    "permissions": {
+        "owner": {
+            "owner": true,
+            "admin": true,
+            "user": true,
+            "developer": true
+        },
+        "admin": {
+            "owner": false,
+            "admin": true,
+            "user": true,
+            "developer": false
+        },
+        "user": {
+            "owner": false,
+            "admin": false,
+            "user": true,
+            "developer": false
+        },
+        "developer": {
+            "owner": false,
+            "admin": false,
+            "user": false,
+            "developer": true
+        }
+    },
+    "token": {
+        "duration": 604800
+    },
+    "throttle": {
+        "api": {
+            "max": 1000,
+            "windowMs": 3600000, // 1hr
+            "headers": true,
+            "message": "Too many api calls from this IP, please try again soon."
+        },
+        "sign_up": {
+            "max": 5,
+            "windowMs": 3600000,
+            "headers": true,
+            "message": "Too many account created."
+        },
+        "sign_in": {
+            "max": 5,
+            "windowMs": 300000,
+            "headers": true,
+            "message": "Too many attempt, please sign in later."
+        },
+        "password_reset": {
+            "max": 3,
+            "windowMs": 300000,
+            "headers": true,
+            "message": "You have reached the limit of password reset."
+        }
+    }
+}
